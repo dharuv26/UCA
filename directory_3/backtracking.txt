@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void maxPath(vector<int<int>> v, int i, int j, int n, int m)
+{
+	if(i > n || j > m)
+	{
+		return 0;
+	}
+	v.push_back({i,j});
+	if(i == n && j == m)
+	{
+		return v[i][j] - '0';
+	}
+	int x = print(i+1, j, n, m);
+	int y = print(i, j+1, n, m);
+	return (v[i][j] - '0') + max(x, y);
+}
+
+int main()
+{
+	vector<pair<int,int>> v;
+	cout << maxPath(v, 0, 0, v.size(), v[0].size());
+	return 0;
+}
